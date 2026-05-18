@@ -2,7 +2,7 @@
 
 Marketing and support site for **Pulse** — a native iPhone and Apple Watch app that turns HealthKit heart-rate data into glanceable widgets, complications, and stats.
 
-Live: https://bearlymad.github.io/pulse-site/
+Live: https://ampentium2.github.io/pulse-site/
 
 **Local preview:**
 ```bash
