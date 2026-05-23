@@ -6,6 +6,7 @@
   --fg:         #111111;
   --fg-muted:   #4A4A4A;
   --accent:     #FF3B30;
+  --accent-text: #D70015;  /* AA-safe red for text/links on light bg */
   --accent-fg:  #FFFFFF;
   --surface:    #FFFFFF;
   --border:     rgba(0, 0, 0, 0.08);
@@ -21,6 +22,7 @@
     --fg:       #F4F4F5;
     --fg-muted: #A1A1AA;
     --accent:   #FF453A;
+    --accent-text: #FF453A;  /* already AA on dark bg */
     --surface:  #18181B;
     --border:   rgba(255, 255, 255, 0.10);
   }
@@ -32,6 +34,7 @@
   --fg:         #111111;
   --fg-muted:   #4A4A4A;
   --accent:     #FF3B30;
+  --accent-text: #D70015;
   --surface:    #FFFFFF;
   --border:     rgba(0, 0, 0, 0.08);
 }
@@ -41,6 +44,7 @@
   --fg:       #F4F4F5;
   --fg-muted: #A1A1AA;
   --accent:   #FF453A;
+  --accent-text: #FF453A;
   --surface:  #18181B;
   --border:   rgba(255, 255, 255, 0.10);
 }
@@ -69,6 +73,7 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
+  min-height: 100vh;   /* fallback for Safari < 15.4 */
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -82,7 +87,7 @@ img {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ============================================================
@@ -109,7 +114,7 @@ main {
   width: 1px;
   height: 1px;
   overflow: hidden;
-  background: var(--accent);
+  background: var(--accent-text);
   color: var(--accent-fg);
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
@@ -414,7 +419,7 @@ main {
 
 .privacy-callout-link {
   font-size: 0.9375rem;
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: none;
   font-weight: 600;
   align-self: flex-start;
@@ -546,7 +551,7 @@ main {
 }
 
 .faq-item summary:hover {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 .faq-item > p {
@@ -563,7 +568,7 @@ main {
 }
 
 .support-fallback .support-email {
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 600;
   text-decoration: none;
   word-break: break-word;
@@ -602,7 +607,7 @@ main {
 }
 
 .privacy-page .support-email {
-  color: var(--accent);
+  color: var(--accent-text);
   font-weight: 600;
   text-decoration: none;
   word-break: break-word;
