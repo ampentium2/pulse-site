@@ -492,7 +492,8 @@ main {
 }
 
 .faq h2,
-.support-fallback h2 {
+.support-fallback h2,
+.privacy-page h2 {
   font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -569,6 +570,45 @@ main {
 }
 
 .support-fallback .support-email:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Privacy page — §5.3 / M7
+   ============================================================ */
+.privacy-effective {
+  font-size: 0.875rem !important;
+  color: var(--fg-muted);
+}
+
+.privacy-page section p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+
+.privacy-page code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.875em;
+  background: var(--bg);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.privacy-page strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.privacy-page .support-email {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.privacy-page .support-email:hover {
   text-decoration: underline;
 }
 
