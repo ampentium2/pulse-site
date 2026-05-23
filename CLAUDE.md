@@ -111,7 +111,7 @@ Screenshot sources live in the Obsidian `Attachments/` folder. Compress before e
 
 ## Locked content (plan §11 — do not paraphrase without asking)
 
-- **Repo name:** `pulse-site`. Expected Pages URL: `https://bearlymad.github.io/pulse-site/` (confirm the GitHub username before deploy).
+- **Repo name:** `pulse-site`, owner `ampentium2`. Live URL: **`https://pulse.bearcave.my/`** (custom subdomain, decided in M8 — see §Repo and merge rules). The default `https://ampentium2.github.io/pulse-site/` stops serving once the custom domain takes over.
 - **Headline (`<h1>`):** *See the rhythm of your day.*
 - **Subhead (`<p>`):** *A native iPhone and Apple Watch app for your HealthKit heart-rate data — glanceable widgets, complications, and stats. Every beat kept private, 100% on-device.*
 - **Wordmark:** plain text "Pulse" in the system font stack, weight `700`, color `var(--fg)`. **No SVG logotype in v1** — defer to a future brand polish pass.
@@ -124,7 +124,7 @@ These are locked because earlier drafts kept reopening them. If the user asks to
 - **Squash-merge only.** Repo Settings → General → Pull Requests must have "Allow merge commits" and "Allow rebase merging" disabled. Keeps the public `main` history limited to polished commits.
 - **License is a custom proprietary notice in `LICENSE.md`** (verbatim text in plan §11). Not SPDX. No `NOTICE.md`. GitHub will display "No license detected" — that's accurate; leave it.
 - README must include a "Contributing" section stating PRs are not accepted (verbatim text in plan §11).
-- `CNAME` is **not** committed in v1 (custom domain is deferred).
+- **Custom domain (decided in M8, supersedes the original "deferred" stance):** the site is served at the Cloudflare-managed subdomain **`pulse.bearcave.my`**. A `CNAME` file containing `pulse.bearcave.my` **is committed**. All absolute URLs (canonical, `og:url`, `og:image`, `sitemap.xml`, `robots.txt` Sitemap line) use `https://pulse.bearcave.my/`. DNS + GitHub Pages wiring steps live in the vault: `…/Pulse/GitHub Pages - Custom Domain Setup.md`. Note: the `verify-email-obfuscation` skill's check #2 (`bearcave.my` in any href) now false-positives on the canonical `<link>`s — the email contract still holds as long as the *joined address* / `@bearcave.my` never appears in source or an href.
 
 ## Milestones
 
@@ -132,4 +132,4 @@ The plan (§10) breaks work into M1–M11. Each milestone lands as a single PR /
 
 ## Out of scope for v1 (plan §9)
 
-Tempting and deferred — don't start any of these without an explicit ask: auto-filing GitHub issues from support, web form, captcha, Cloudflare Worker, custom domain, web fonts, cookie banner, analytics, multi-language, blog/changelog, App Store smart link.
+Tempting and deferred — don't start any of these without an explicit ask: auto-filing GitHub issues from support, web form, captcha, Cloudflare Worker, web fonts, cookie banner, analytics, multi-language, blog/changelog, App Store smart link. (Custom domain was on this list but is now **in scope** — shipped as `pulse.bearcave.my` in M8; see §Repo and merge rules.)
