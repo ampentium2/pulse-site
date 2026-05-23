@@ -425,6 +425,154 @@ main {
 }
 
 /* ============================================================
+   Support page — §5.2 / M6
+   ============================================================ */
+.support-page {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.support-intro h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.support-intro p {
+  font-size: 1.0625rem;
+  color: var(--fg-muted);
+  line-height: 1.65;
+}
+
+.support-callout {
+  padding: 1.5rem 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.support-callout h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.support-callout p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+.support-callout strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.support-callout-note {
+  color: var(--fg-muted);
+  font-size: 0.875rem !important;
+}
+
+.support-callout code,
+.faq-item code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.875em;
+  background: var(--bg);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.faq h2,
+.support-fallback h2 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  color: var(--fg);
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--fg-muted);
+  transition: transform 150ms ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item summary:hover {
+  color: var(--accent);
+}
+
+.faq-item > p {
+  padding: 0 1.25rem 1rem;
+  color: var(--fg-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.support-fallback p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+
+.support-fallback .support-email {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.support-fallback .support-email:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
    Reduced motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
