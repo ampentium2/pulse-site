@@ -49,10 +49,12 @@
       var domain = el.dataset.domain;
       if (!user || !domain) return;
       var address = user + '@' + domain;
+      var label = el.dataset.label || address;
       el.href = 'mailto:' + address + '?subject=Pulse%20support';
-      el.replaceChildren(document.createTextNode(address));
+      el.replaceChildren(document.createTextNode(label));
       el.removeAttribute('data-user');
       el.removeAttribute('data-domain');
+      el.removeAttribute('data-label');
     });
   }
 

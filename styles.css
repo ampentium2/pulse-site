@@ -6,6 +6,7 @@
   --fg:         #111111;
   --fg-muted:   #4A4A4A;
   --accent:     #FF3B30;
+  --accent-text: #D70015;  /* AA-safe red for text/links on light bg */
   --accent-fg:  #FFFFFF;
   --surface:    #FFFFFF;
   --border:     rgba(0, 0, 0, 0.08);
@@ -21,6 +22,7 @@
     --fg:       #F4F4F5;
     --fg-muted: #A1A1AA;
     --accent:   #FF453A;
+    --accent-text: #FF453A;  /* already AA on dark bg */
     --surface:  #18181B;
     --border:   rgba(255, 255, 255, 0.10);
   }
@@ -32,6 +34,7 @@
   --fg:         #111111;
   --fg-muted:   #4A4A4A;
   --accent:     #FF3B30;
+  --accent-text: #D70015;
   --surface:    #FFFFFF;
   --border:     rgba(0, 0, 0, 0.08);
 }
@@ -41,6 +44,7 @@
   --fg:       #F4F4F5;
   --fg-muted: #A1A1AA;
   --accent:   #FF453A;
+  --accent-text: #FF453A;
   --surface:  #18181B;
   --border:   rgba(255, 255, 255, 0.10);
 }
@@ -69,6 +73,7 @@ html {
 body {
   background: var(--bg);
   color: var(--fg);
+  min-height: 100vh;   /* fallback for Safari < 15.4 */
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -82,7 +87,7 @@ img {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-text);
 }
 
 /* ============================================================
@@ -109,7 +114,7 @@ main {
   width: 1px;
   height: 1px;
   overflow: hidden;
-  background: var(--accent);
+  background: var(--accent-text);
   color: var(--accent-fg);
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
@@ -229,6 +234,387 @@ main {
 
 .footer-nav a:hover {
   color: var(--fg);
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+@keyframes waveform-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1;    }
+}
+
+.hero {
+  padding-bottom: 3rem;
+  text-align: center;
+}
+
+.hero-wave {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: 80px;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+  animation: waveform-pulse 2s ease-in-out infinite;
+}
+
+.hero-headline {
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin-bottom: 1rem;
+}
+
+.hero-subhead {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  color: var(--fg-muted);
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: 2.5rem;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.badge-coming-soon {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.625rem 1.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.hero-support-link {
+  font-size: 0.9375rem;
+  color: var(--fg-muted);
+  text-decoration: none;
+}
+
+.hero-support-link:hover {
+  color: var(--fg);
+}
+
+/* ============================================================
+   Intro — §5.1.3
+   ============================================================ */
+.intro {
+  max-width: 60ch;
+  margin-inline: auto;
+  padding-block: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--fg);
+}
+
+.intro p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Features — §5.1.4
+   ============================================================ */
+.features {
+  padding-block: 1rem 3rem;
+}
+
+.features-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  scroll-snap-type: y mandatory;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scroll-snap-align: start;
+}
+
+.feature-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.feature-card p {
+  color: var(--fg-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.feature-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.feature-visual img {
+  max-height: 360px;
+  width: auto;
+  border-radius: 10px;
+}
+
+@media (min-width: 720px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    scroll-snap-type: none;
+  }
+
+  .feature-visual {
+    min-height: 240px;
+  }
+}
+
+/* ============================================================
+   Privacy callout — §5.1.5
+   ============================================================ */
+.privacy-callout {
+  margin-block: 1rem 2rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.privacy-callout-quote {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+.privacy-callout-link {
+  font-size: 0.9375rem;
+  color: var(--accent-text);
+  text-decoration: none;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.privacy-callout-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Support page — §5.2 / M6
+   ============================================================ */
+.support-page {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.support-intro h1 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.support-intro p {
+  font-size: 1.0625rem;
+  color: var(--fg-muted);
+  line-height: 1.65;
+}
+
+.support-callout {
+  padding: 1.5rem 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.support-callout h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.support-callout p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--fg);
+}
+
+.support-callout strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.support-callout-note {
+  color: var(--fg-muted);
+  font-size: 0.875rem !important;
+}
+
+.support-callout code,
+.faq-item code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.875em;
+  background: var(--bg);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.faq h2,
+.support-fallback h2,
+.privacy-page h2 {
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+  color: var(--fg);
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--fg-muted);
+  transition: transform 150ms ease;
+}
+
+.faq-item[open] summary::after {
+  content: "−";
+}
+
+.faq-item summary:hover {
+  color: var(--accent-text);
+}
+
+.faq-item > p {
+  padding: 0 1.25rem 1rem;
+  color: var(--fg-muted);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+.support-fallback p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+
+.support-fallback .support-email {
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.support-fallback .support-email:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   Privacy page — §5.3 / M7
+   ============================================================ */
+.privacy-effective {
+  font-size: 0.875rem !important;
+  color: var(--fg-muted);
+}
+
+.privacy-page section p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--fg-muted);
+}
+
+.privacy-page code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 0.875em;
+  background: var(--bg);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.privacy-page strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.privacy-page .support-email {
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.privacy-page .support-email:hover {
+  text-decoration: underline;
 }
 
 /* ============================================================

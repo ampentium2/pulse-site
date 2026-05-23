@@ -4,6 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pulse — See the rhythm of your day.</title>
+  <meta name="description" content="Pulse turns your HealthKit heart-rate data into glanceable iPhone and Apple Watch widgets, complications, and charts — every beat private, 100% on-device.">
+  <link rel="canonical" href="https://pulse.bearcave.my/">
+
+  <meta name="theme-color" content="#FF3B30" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#FF453A" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pulse">
+  <meta property="og:title" content="Pulse — See the rhythm of your day.">
+  <meta property="og:description" content="Pulse turns your HealthKit heart-rate data into glanceable iPhone and Apple Watch widgets, complications, and charts — every beat private, 100% on-device.">
+  <meta property="og:url" content="https://pulse.bearcave.my/">
+  <meta property="og:image" content="https://pulse.bearcave.my/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pulse — See the rhythm of your day.">
+  <meta name="twitter:description" content="Pulse turns your HealthKit heart-rate data into glanceable iPhone and Apple Watch widgets, complications, and charts — every beat private, 100% on-device.">
+  <meta name="twitter:image" content="https://pulse.bearcave.my/assets/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
   <link rel="stylesheet" href="styles.css">
   <script>!function(){var t=localStorage.getItem('pulse.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}()</script>
   <script src="app.js" defer></script>
@@ -26,20 +49,139 @@
   </header>
 
   <main id="main" class="container">
+    <section class="hero">
+
+      <svg class="hero-wave" viewBox="0 0 800 80"
+           preserveAspectRatio="xMidYMid meet"
+           aria-hidden="true" focusable="false">
+        <path
+          d="M0,40 H58 C62,40 68,28 75,28 C82,28 88,40 94,40
+             H100 L101.5,46 L105,5 L108.5,54
+             C111,40 114,40 116,40 H120
+             C124,40 128,26 133,26 C138,26 142,40 148,40 H160
+             H218 C222,40 228,28 235,28 C242,28 248,40 254,40
+             H260 L261.5,46 L265,5 L268.5,54
+             C271,40 274,40 276,40 H280
+             C284,40 288,26 293,26 C298,26 302,40 308,40 H320
+             H378 C382,40 388,28 395,28 C402,28 408,40 414,40
+             H420 L421.5,46 L425,5 L428.5,54
+             C431,40 434,40 436,40 H440
+             C444,40 448,26 453,26 C458,26 462,40 468,40 H480
+             H538 C542,40 548,28 555,28 C562,28 568,40 574,40
+             H580 L581.5,46 L585,5 L588.5,54
+             C591,40 594,40 596,40 H600
+             C604,40 608,26 613,26 C618,26 622,40 628,40 H640
+             H698 C702,40 708,28 715,28 C722,28 728,40 734,40
+             H740 L741.5,46 L745,5 L748.5,54
+             C751,40 754,40 756,40 H760
+             C764,40 768,26 773,26 C778,26 782,40 788,40 H800"
+          fill="none" stroke="var(--accent)"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <h1 class="hero-headline">See the rhythm of your day.</h1>
+
+      <p class="hero-subhead">A native iPhone and Apple Watch app for your
+      HealthKit heart-rate data — glanceable widgets, complications, and stats.
+      Every beat kept private, 100% on-device.</p>
+
+      <div class="hero-actions">
+        <button class="badge-coming-soon" disabled aria-disabled="true">
+          Coming soon to the App Store
+        </button>
+        <a href="support.html" class="hero-support-link">Contact support</a>
+      </div>
+
+    </section>
+
+    <section class="intro">
+      <p>Pulse is a native iPhone and Apple Watch app that turns your HealthKit
+      heart-rate data into glanceable widgets, complications, and stats. No
+      accounts, no servers, no setup — install it, grant HealthKit access, and
+      the widgets fill in.</p>
+
+      <p>The Health app shows you yesterday's chart. Pulse shows you today's
+      pulse at a glance — on your Home Screen, your Lock Screen, and your Watch
+      face. Time windows, gauges, and charts, side by side with the rest of
+      your day.</p>
+    </section>
+
+    <section class="features" aria-labelledby="features-heading">
+      <h2 id="features-heading" class="features-heading">Widgets for every glance</h2>
+
+      <div class="features-grid">
+
+        <article class="feature-card">
+          <div class="feature-visual">
+            <picture>
+              <source srcset="assets/screenshots/time-windowed.webp" type="image/webp">
+              <img src="assets/screenshots/time-windowed.png"
+                   alt="Three small Home Screen widgets showing today's average, maximum, and minimum heart rate — 58.3, 73, and 45 BPM."
+                   width="276" height="600" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <h3>Time-windowed stats</h3>
+          <p>Min, max, and average heart rate over the windows that matter:
+          the last hour, the last 12 hours, today, and this month. Pick the
+          window and the stat per widget and read it without unlocking your
+          phone.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-visual">
+            <picture>
+              <source srcset="assets/screenshots/arc-gauges.webp" type="image/webp">
+              <img src="assets/screenshots/arc-gauges.png"
+                   alt="Three arc-gauge widgets on a Home Screen showing 60 BPM over the last hour, 60 BPM over the last 12 hours, and 55 BPM today, each with min and max readings underneath."
+                   width="276" height="600" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <h3>Arc gauges</h3>
+          <p>An arc gauge plots your current heart rate against the range
+          you care about, with min and max anchored at the corners. Glance-
+          readable at any widget size, on iPhone or Apple Watch.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-visual">
+            <picture>
+              <source srcset="assets/screenshots/charts.webp" type="image/webp">
+              <img src="assets/screenshots/charts.png"
+                   alt="Three chart widgets on a Home Screen showing heart-rate traces for today, the last 12 hours, and the last hour, each with min, average, and max BPM beneath the chart."
+                   width="276" height="600" loading="lazy" decoding="async">
+            </picture>
+          </div>
+          <h3>Charts</h3>
+          <p>Your heart-rate trace as a small chart, sized for the Home
+          Screen. Watch the shape of your day — workouts, naps, that one
+          stressful meeting — without opening the Health app.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <aside class="privacy-callout" aria-labelledby="privacy-callout-heading">
+      <p id="privacy-callout-heading" class="privacy-callout-quote">
+        Your heart-rate data never leaves your device. No server. No analytics.
+        No SDK.
+      </p>
+      <a class="privacy-callout-link" href="privacy.html">Read the privacy policy →</a>
+    </aside>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© 2026 Adam, BearlyMadStudios</p>
+      <p class="copyright">© 2026 BearlyMad Studios</p>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>
         <a class="support-email"
            data-user="pulse.support"
            data-domain="bearcave.my"
+           data-label="Contact"
            href="#">
           <noscript>Email: pulse.support [at] bearcave.my</noscript>
-          contact support
+          Contact
         </a>
       </nav>
     </div>

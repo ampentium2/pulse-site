@@ -4,6 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Support — Pulse</title>
+  <meta name="description" content="Get help with Pulse, the on-device heart-rate widget app for iPhone and Apple Watch. Browse the FAQ, use in-app support, or reach the team by email.">
+  <link rel="canonical" href="https://pulse.bearcave.my/support.html">
+
+  <meta name="theme-color" content="#FF3B30" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#FF453A" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pulse">
+  <meta property="og:title" content="Pulse — Support">
+  <meta property="og:description" content="Get help with Pulse, the on-device heart-rate widget app for iPhone and Apple Watch. Browse the FAQ, use in-app support, or reach the team by email.">
+  <meta property="og:url" content="https://pulse.bearcave.my/support.html">
+  <meta property="og:image" content="https://pulse.bearcave.my/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pulse — Support">
+  <meta name="twitter:description" content="Get help with Pulse, the on-device heart-rate widget app for iPhone and Apple Watch. Browse the FAQ, use in-app support, or reach the team by email.">
+  <meta name="twitter:image" content="https://pulse.bearcave.my/assets/og-image.png">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
   <link rel="stylesheet" href="styles.css">
   <script>!function(){var t=localStorage.getItem('pulse.theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}()</script>
   <script src="app.js" defer></script>
@@ -25,21 +48,110 @@
     </div>
   </header>
 
-  <main id="main" class="container">
+  <main id="main" class="container support-page">
+
+    <header class="support-intro">
+      <h1>Support</h1>
+      <p>Pulse is a one-person project. The fastest way to get a useful reply
+      is from inside the app — the steps below explain why, and an email
+      fallback is at the bottom.</p>
+    </header>
+
+    <section class="support-callout" aria-labelledby="in-app-heading">
+      <h2 id="in-app-heading">Use the in-app button</h2>
+      <p>Open <strong>Pulse → Settings → Contact support</strong>. It opens
+      your Mail app prefilled with the app version, iOS version, and device
+      model — exactly the details needed to reproduce a widget bug. No data
+      is sent until you tap send, and you can edit or remove any of it
+      first.</p>
+      <p class="support-callout-note">If a widget is showing
+      <code>--</code>, please leave that detail in — see the FAQ below for
+      what it means.</p>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently asked questions</h2>
+
+      <details class="faq-item">
+        <summary>Where does my heart-rate data go?</summary>
+        <p>Nowhere. Pulse reads heart-rate samples from HealthKit on your
+        device, computes the widget, and that's the end of it. There is no
+        Pulse server. Nothing is uploaded, synced, or shared.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why is my widget showing <code>--</code>?</summary>
+        <p>That sentinel means HealthKit has no heart-rate samples inside
+        the window the widget is configured for — for example, an
+        "Avg, last hour" widget when the Watch hasn't taken a reading in
+        the past hour. Once a new sample arrives the widget will refresh
+        on its normal schedule.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does Pulse need an internet connection?</summary>
+        <p>No. Pulse works fully offline. There is no account, no sign-in,
+        and no network code in the app.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why does Pulse ask for HealthKit permissions?</summary>
+        <p>To read your heart-rate samples and workouts so it can compute
+        the stats and draw the charts. Nothing else is requested, and
+        Pulse never writes back to HealthKit.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does Pulse work without an Apple Watch?</summary>
+        <p>Yes — the iPhone widgets and Lock Screen widgets work with
+        whatever heart-rate data HealthKit has, including readings from
+        third-party devices. An Apple Watch gives you the richest data
+        (and adds the Watch complications), but it isn't required.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will there be an Android version?</summary>
+        <p>No. Pulse is built on HealthKit, which is Apple-only.</p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I add a Pulse widget?</summary>
+        <p>Long-press the Home Screen, tap the <strong>+</strong> in the
+        top corner, search for <strong>Pulse</strong>, pick the widget,
+        and tap <strong>Add Widget</strong>. The same flow works on the
+        Lock Screen and Apple Watch face.</p>
+      </details>
+    </section>
+
+    <section class="support-fallback" aria-labelledby="fallback-heading">
+      <h2 id="fallback-heading">Can't use the in-app button?</h2>
+      <p>Email
+        <a class="support-email"
+           data-user="pulse.support"
+           data-domain="bearcave.my"
+           href="#">
+          <noscript>pulse.support [at] bearcave.my</noscript>
+          pulse.support [at] bearcave.my
+        </a>
+        and please include your iOS version, device model, and Pulse
+        version — it speeds up debugging considerably.</p>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="copyright">© 2026 Adam, BearlyMadStudios</p>
+      <p class="copyright">© 2026 BearlyMad Studios</p>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>
         <a class="support-email"
            data-user="pulse.support"
            data-domain="bearcave.my"
+           data-label="Contact"
            href="#">
           <noscript>Email: pulse.support [at] bearcave.my</noscript>
-          contact support
+          Contact
         </a>
       </nav>
     </div>
