@@ -304,6 +304,127 @@ main {
 }
 
 /* ============================================================
+   Intro — §5.1.3
+   ============================================================ */
+.intro {
+  max-width: 60ch;
+  margin-inline: auto;
+  padding-block: 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--fg);
+}
+
+.intro p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Features — §5.1.4
+   ============================================================ */
+.features {
+  padding-block: 1rem 3rem;
+}
+
+.features-heading {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  scroll-snap-type: y mandatory;
+}
+
+.feature-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  scroll-snap-align: start;
+}
+
+.feature-card h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.feature-card p {
+  color: var(--fg-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.feature-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.feature-visual img {
+  max-height: 360px;
+  width: auto;
+  border-radius: 10px;
+}
+
+@media (min-width: 720px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+    scroll-snap-type: none;
+  }
+
+  .feature-visual {
+    min-height: 240px;
+  }
+}
+
+/* ============================================================
+   Privacy callout — §5.1.5
+   ============================================================ */
+.privacy-callout {
+  margin-block: 1rem 2rem;
+  padding: 1.5rem 1.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.privacy-callout-quote {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--fg);
+  line-height: 1.5;
+}
+
+.privacy-callout-link {
+  font-size: 0.9375rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+.privacy-callout-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
    Reduced motion
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
