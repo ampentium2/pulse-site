@@ -2,7 +2,8 @@
 
 Marketing and support site for **Pulse** — a native iPhone and Apple Watch app that turns HealthKit heart-rate data into glanceable widgets, complications, and stats.
 
-Live: https://ampentium2.github.io/pulse-site/
+Live: https://pulse.bearcave.my
+App Store Link: https://apps.apple.com/my/app/pulse-heart-stats/id6766077332
 
 **Local preview:**
 ```bash
