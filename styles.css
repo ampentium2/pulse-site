@@ -285,7 +285,7 @@ main {
   flex-wrap: wrap;
 }
 
-.badge-coming-soon {
+.badge-app-store {
   background: var(--fg);
   color: var(--bg);
   border: none;
@@ -294,8 +294,12 @@ main {
   font-size: 0.9375rem;
   font-weight: 600;
   font-family: inherit;
-  opacity: 0.4;
-  cursor: not-allowed;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.badge-app-store:hover {
+  opacity: 0.85;
 }
 
 .hero-support-link {

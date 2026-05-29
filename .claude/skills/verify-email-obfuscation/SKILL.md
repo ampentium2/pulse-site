@@ -16,9 +16,12 @@ echo "=== check 1: joined address must not appear in any source file ==="
 ! grep -rn "pulse\.support@bearcave\.my" --include="*.html" --include="*.js" --include="*.css" . \
   && echo "OK" || echo "FAIL: joined address found in source"
 
-echo "=== check 2: bearcave.my must not appear inside any href attribute ==="
-! grep -rEn 'href="[^"]*bearcave\.my' --include="*.html" . \
-  && echo "OK" || echo "FAIL: bearcave.my found in an href"
+echo "=== check 2: the joined address / mailto must not appear inside any href ==="
+# Note: the canonical & og:url links legitimately point at the custom domain
+# host 'pulse.bearcave.my' (M8). Those are fine — only the *joined email*
+# (anything '@bearcave.my', or a 'mailto:') leaking into an href breaks the contract.
+! grep -rEn 'href="[^"]*(@bearcave\.my|mailto:)' --include="*.html" . \
+  && echo "OK" || echo "FAIL: joined address / mailto found in an href"
 
 echo "=== check 3: app.js must not contain the user@domain literal in any form ==="
 ! grep -En '"pulse\.support".*"@".*"bearcave\.my"|`pulse\.support@\$\{' app.js 2>/dev/null \

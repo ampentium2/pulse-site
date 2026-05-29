@@ -17,13 +17,13 @@ Run the `verify-email-obfuscation` skill checks first. **Hard block** if anythin
 
 ```bash
 echo "=== no cross-origin URLs in HTML/CSS/JS ==="
-grep -rEn 'https?://(?!bearlymad\.github\.io)' --include="*.html" --include="*.css" --include="*.js" . \
-  | grep -vE '://(www\.)?w3\.org|://schema\.org' \
+grep -rEn 'https?://' --include="*.html" --include="*.css" --include="*.js" . \
+  | grep -vE '://(www\.)?w3\.org|://schema\.org|://pulse\.bearcave\.my|://apps\.apple\.com' \
   && echo "FAIL: cross-origin reference found — review above" \
   || echo "OK"
 ```
 
-The only off-site links allowed are content links (e.g. an App Store URL once it exists, which is currently a disabled "Coming soon" badge per CLAUDE.md). No Google Fonts, no analytics, no CDN libs, no remote images.
+Allowed references: the canonical/OG URLs on `pulse.bearcave.my` (the custom domain, decided in M8), and the App Store listing link (`apps.apple.com`, live since the listing shipped). Everything else is forbidden at runtime — no Google Fonts, no analytics, no CDN libs, no remote images.
 
 ### 3. Asset budgets (acceptance §8.5)
 
@@ -46,10 +46,14 @@ for f in index.html support.html privacy.html 404.html styles.css app.js robots.
 done
 ```
 
-### 5. CNAME must NOT be committed in v1
+### 5. CNAME must be committed and point to the custom domain
+
+Per the M8 decision (CLAUDE.md §Repo and merge rules), the site is served at `pulse.bearcave.my` and a `CNAME` file containing exactly that host **is committed**.
 
 ```bash
-[ -f CNAME ] && echo "FAIL: CNAME present — custom domain is deferred per CLAUDE.md" || echo "OK: no CNAME"
+[ -f CNAME ] && [ "$(cat CNAME)" = "pulse.bearcave.my" ] \
+  && echo "OK: CNAME = pulse.bearcave.my" \
+  || echo "FAIL: CNAME missing or not 'pulse.bearcave.my' — custom domain wiring per CLAUDE.md §Repo and merge rules"
 ```
 
 ### 6. Theme-flash guard in `<head>`
@@ -70,14 +74,19 @@ grep -q 'prefers-reduced-motion' styles.css \
   || echo "FAIL: hero animation must disable under prefers-reduced-motion"
 ```
 
-### 8. App Store link must still be disabled
+### 8. App Store link must be live
 
-Until the App Store listing exists, the badge must be a disabled "Coming soon" element — not an `<a href>` to a dead URL.
+The listing now exists, so `index.html` must link to it with a real `<a href>` — not a disabled "Coming soon" badge or a dead URL.
 
 ```bash
-grep -rEn 'apps\.apple\.com|itunes\.apple\.com' --include="*.html" . \
-  && echo "FAIL: live App Store URL found — should be disabled badge" \
-  || echo "OK: no App Store hyperlink"
+grep -q 'apps\.apple\.com/.*id6766077332' index.html \
+  && echo "OK: App Store link present" \
+  || echo "FAIL: App Store link missing from index.html"
+
+echo "=== no leftover disabled 'Coming soon' badge ==="
+grep -in 'coming soon' index.html \
+  && echo "FAIL: stale Coming soon badge — listing is live, link it" \
+  || echo "OK: no stale badge"
 ```
 
 ## Manual checks (walk the user through)
